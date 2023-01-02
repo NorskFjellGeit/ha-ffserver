@@ -1,4 +1,11 @@
+ARG BUILD_FROM
+FROM $BUILD_FROM
+
 FROM alpine:3.8
+FROM ${BUILD_FROM}
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apk add curl bash ffmpeg && \
     rm -rf /var/cache/apk/*
 COPY run.sh /usr/bin/run.sh
