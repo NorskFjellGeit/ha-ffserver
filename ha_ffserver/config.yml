@@ -11,10 +11,14 @@ panel_icon: mdi:camera
 panel_title: FFServer UI
 options:
   camera_rtsp: ""
+  camera_width: 1920
+  camera_height: 1080
   camera_fps: 2
   camera_still_fps: 1
 schema:
   camera_rtsp: str
+  camera_width: int
+  camera_height: int
   camera_fps: int
   camera_still_fps: int
 ports:
