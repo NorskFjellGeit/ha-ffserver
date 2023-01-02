@@ -37,18 +37,6 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3
-      - name: 🚀 Run add-on information action
-        id: information
-        uses: frenck/action-addon-information@v1.4.1
-      - name: 🚀 Process possible slug override
-        id: override
-        run: |
-          slug="${{ steps.information.outputs.slug }}"
-          if [[ ! -z "${{ inputs.slug }}" ]]; then
-            slug="${{ inputs.slug }}"
-          fi
-          echo "slug=$slug" >> $GITHUB_OUTPUT
-
 
   build:
     runs-on: ubuntu-latest
