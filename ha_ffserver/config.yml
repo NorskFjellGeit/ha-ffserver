@@ -6,9 +6,7 @@ init: false
 arch:
   - aarch64
   - amd64
-  - armhf
   - armv7
-  - i386
 options:
   camera_rtsp: ""
   camera_fps: 5
@@ -19,4 +17,5 @@ schema:
   camera_still_fps: int
 ports:
   8090/tcp: 8090
-  8090/udp: 8090
+ports_description:
+  8090/tcp: Webcam HTTP
