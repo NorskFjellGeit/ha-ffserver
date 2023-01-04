@@ -8,7 +8,7 @@ ARG BUILDPLATFORM
 
 WORKDIR /tmp
 
-RUN apk add --no-cache busybox-extras
+RUN apk add --no-cache nginx ffmpeg font-noto
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
@@ -57,12 +57,6 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
     && mv /tmp/ffmpeg/ffmpeg /usr/local/bin/ \
     && rm -rf /tmp/ffmpeg*; \
   fi
-
-# RUN apk add curl bash ffmpeg && \
-#     rm -rf /var/cache/apk/*
-
-#RUN env
-RUN echo $TARGETPLATFORM
 
 COPY rootfs /
 
